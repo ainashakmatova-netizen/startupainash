@@ -1,0 +1,57 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head><title>{{title}}</title>-->
+<!--<style>-->
+<!--<h1>-->
+<!--    color:red-->
+<!--</h1>-->
+<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Выберите приложение:</h1>-->
+
+<!--    <form method="POST">-->
+<!--        <select name="app_name" required>-->
+<!--            <option value="" disabled selected>Выберите приложение</option>-->
+<!--            <option value="Instagram">Instagram</option>-->
+<!--            <option value="TikTok">TikTok</option>-->
+<!--            <option value="YouTube">YouTube</option>-->
+<!--        </select>-->
+
+<!--        <button type="submit">Подтвердить</button>-->
+<!--    </form>-->
+
+<!--    {% if message %}-->
+<!--        <h2 style="color: red;">{{ message }}</h2>-->
+<!--    {% endif %}-->
+
+
+<!--<h1>Опиши свою проблему, мы ее с удовольствием решим! </h1>-->
+<!--<form method ='POST'>-->
+<!--    <input type = 'text' name = 'input' placeholder='введи'>-->
+<!--    <button type = 'submit'>Отправить свою проблему</button>-->
+
+<!--</form>-->
+<!--{% if result %}-->
+<!--    <p>{{ result }}</p>-->
+<!--{% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🔒Productify </h1>
+    <p>Сначала сделай дела - потом развлекайся</p>
+
+    <a href="/lock" class="btn">Открыть Соц-Сети </a>
+</div>
+
+</body>
+</html>
