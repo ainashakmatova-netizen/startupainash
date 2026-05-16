@@ -1,37 +1,5 @@
-# from flask import (Flask,
-#                    render_template,
-#                    request)
-# import os
-#
-# app = Flask(__name__)
-#
-# @app.route("/", methods=["GET", "POST"])
-# def index():
-#     result = None
-#     selected_app = None
-#     message = None
-#     if request.method == "POST":
-#
-#         selected_app = request.form.get('app_name')
-#         if selected_app:
-#             message = f"вы выбрали: {selected_app} Доступ ограничен"
-#
-#         user_input = request.form.get("input")
-#         result = f"Ты ввёл: {user_input}"
-#     return render_template(
-#         "index.html",
-#         result=result, message=message)
-#
-#
-# # if request.method == "POST":
-# #     selected_app = request.form.get("app_name")
-# #     if selected_app:
-# #         message = f'вы выбрали: {selected_app}, доступ ограничен'
-#
-#
-# if __name__ == "__main__":
-#     app.run(debug=True)
 from flask import Flask, render_template, request, redirect, url_for
+from werkzeug.utils import secure_filename
 import os
 
 app = Flask(__name__)
@@ -54,7 +22,8 @@ def unlock():
     if not text or not file:
         return "Заполни всё!", 400
 
-    filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    filename = secure_filename(file.filename)
+    filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(filepath)
 
     return redirect(url_for('success'))
@@ -64,4 +33,4 @@ def success():
     return render_template('success.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
