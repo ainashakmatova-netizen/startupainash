@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация - Productify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Регистрация</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="flash {{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/register">
+        <input type="text" name="username" placeholder="Имя пользователя" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Пароль (мин. 4 символа)" required>
+        <input type="password" name="password2" placeholder="Повторите пароль" required>
+        <button type="submit" class="btn">Зарегистрироваться</button>
+    </form>
+
+    <p style="margin-top: 20px;">Уже есть аккаунт? <a href="/login" style="color: #ff4b5c;">Войти</a></p>
+</div>
+
+</body>
+</html>
