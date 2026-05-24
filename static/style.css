@@ -45,3 +45,20 @@ input {
 .success .btn {
     background: #28a745;
 }
+
+.flash {
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+.flash.error {
+    background: #ff4b5c;
+    color: white;
+}
+
+.flash.success {
+    background: #28a745;
+    color: white;
+}
