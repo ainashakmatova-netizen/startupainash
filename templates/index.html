@@ -47,10 +47,20 @@
 <body>
 
 <div class="container">
-    <h1>🔒Productify </h1>
+    <h1>🔒Productify</h1>
     <p>Сначала сделай дела - потом развлекайся</p>
 
-    <a href="/lock" class="btn">Открыть Соц-Сети </a>
+    <a href="/lock" class="btn">Открыть Соц-Сети</a>
+
+    <div style="margin-top: 40px;">
+        {% if user %}
+            <p>Привет, <strong>{{ user }}</strong>!</p>
+            <a href="/logout" style="color: #ff4b5c;">Выйти</a>
+        {% else %}
+            <a href="/login" class="btn" style="background: #333; margin-right: 10px;">Войти</a>
+            <a href="/register" class="btn" style="background: #333;">Регистрация</a>
+        {% endif %}
+    </div>
 </div>
 
 </body>
